@@ -1,21 +1,11 @@
 import React from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, Switch } from 'react-router-dom';
+import Category from './components/Category';
+import Products from './components/Products';
 
 const Home = () => (
   <div>
     <h2>Home</h2>
-  </div>
-);
-
-const Category = () => (
-  <div>
-    <h2>Category</h2>
-  </div>
-);
-
-const Products = () => (
-  <div>
-    <h2>Products</h2>
   </div>
 );
 
@@ -36,10 +26,11 @@ export default function App() {
         </ul>
       </nav>
 
-      { /* Route components are rendered if the path prop matches the current URL */}
-      <Route exact path="/"><Home /></Route>
-      <Route exact path="/category"><Category /></Route>
-      <Route exact path="/products"><Products /></Route>
+      <Switch>
+        <Route exact path="/"><Home /></Route>
+        <Route path="/category"><Category /></Route>
+        <Route path="/products"><Products /></Route>
+      </Switch>
     </div>
   );
 }
